@@ -1,5 +1,19 @@
 {
   "presets": [
-    "es2015"
+    ["env", {
+      "targets": {
+        "browsers": [
+          "last 8 versions",
+          "safari >= 9",
+          "ie >= 10"
+        ]
+      },
+      "modules": false,
+      "loose": true
+    }]
+  ],
+  "plugins": [
+    "external-helpers",
+    "transform-object-assign"
   ]
 }
