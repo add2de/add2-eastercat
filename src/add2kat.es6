@@ -5,16 +5,24 @@ import getKatDom from './modules/getKatDom';
 
 const keysPressed = [];
 const katCode = 'add2de';
+const katDivID = 'add2kat';
 let domElement;
 
-document.getElementsByTagName('body')[0].appendChild(getKatDom());
-
-function addKat() {
-
+function removeKat() {
+  document.getElementsByTagName('body')[0].removeChild(domElement);
 }
 
-function removeKat() {
+function addKat() {
+  const katWidth = 170;
+  const browserWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  const katPlayground = browserWidth - katWidth;
+  const katPosition = Math.floor(Math.random() * katPlayground) + 1;
 
+  const katDom = getKatDom(katDivID);
+  katDom.style.cssText = `left: ${katPosition}px; bottom: 0px; ${katDom.style.cssText}`;
+  domElement = document.getElementsByTagName('body')[0].appendChild(katDom);
+
+  window.setTimeout(removeKat, 1000, true);
 }
 
 window.addEventListener('keyup', (e) => {
