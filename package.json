@@ -1,13 +1,27 @@
 {
-  "private": true,
-  "engines": {
-    "node": ">=4"
-  },
+  "name": "add2kat",
+  "description": "Adds a kat to the browser window when a secret code is entered",
+  "version": "0.0.1",
+  "main": "dist/add2kat.js",
   "scripts": {
     "serve": "run-p rollup browserSync",
     "rollup": "rollup -c -w",
     "browserSync": "browser-sync start --config browser-sync.config.js"
   },
+  "license": "MIT License",
+  "private": false,
+  "author": {
+    "name" : "Peter Rosellen",
+    "email" : "pr@add2.de"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:add2de/add2kat.git"
+  },
+  "bugs": {
+    "url" : "https://github.com/add2de/add2kat/issues"
+  },
+  "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.4.0",
     "babel-plugin-external-helpers": "6.22.0",
@@ -28,6 +42,5 @@
     "rollup-plugin-node-resolve": "3.0.0",
     "run-sequence": "^1.2.2",
     "watch": "1.0.2"
-  },
-  "dependencies": { }
+  }
 }
