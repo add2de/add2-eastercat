@@ -1,4 +1,3 @@
-
 /*
  |--------------------------------------------------------------------------
  | Browser-sync config file
@@ -20,7 +19,7 @@ module.exports = {
     },
   },
   files: {
-    files: ['./dist/**/*js'],
+    files: ['./.tmp/**/*js'],
   },
   watchEvents: [
     'change',
@@ -29,7 +28,7 @@ module.exports = {
     ignoreInitial: true,
   },
   server: {
-    baseDir: ['dist', 'src'],
+    baseDir: ['.tmp', 'src'],
   },
   proxy: false,
   port: 9000,

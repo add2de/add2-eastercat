@@ -10,7 +10,7 @@ export default {
     }),
   ],
   output: {
-    file: 'dist/add2kat.js',
+    file: '.tmp/add2kat.js',
     format: 'iife',
   },
 };
