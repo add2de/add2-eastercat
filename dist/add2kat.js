@@ -7,7 +7,7 @@ var katCSSImage = 'url("' + katImage + '")';
 var container = document.createElement('div');
 container.style.cssText = 'position: fixed; width: 167px; height: 220px; background-image: ' + katCSSImage + ';';
 
-var getDomElement = function getDomElement(containerId) {
+var getKatElement = function getKatElement(containerId) {
   container.id = containerId;
 
   return container;
@@ -17,33 +17,52 @@ var getDomElement = function getDomElement(containerId) {
  * Created by Peter Rosellen <pr@add2.de> on 20.10.2017.
  */
 var keysPressed = [];
-var katCode = 'add2de';
-var katDivID = 'add2kat';
-var domElement = void 0;
+var katCode = 'add2de'; // Der geheime Code, um das Katzengif zu erstellen
+var katDivID = 'add2kat'; // Die ID für das Katzen-DIV
 
-function removeKat() {
-  document.getElementsByTagName('body')[0].removeChild(domElement);
+
+/**
+ * Entfernt das DOM-Element mit der Katze wieder aus dem DOM
+ * @param katDomElement Das DOM-Element der Katze
+ */
+function removeKat(katDomElement) {
+  document.getElementsByTagName('body')[0].removeChild(katDomElement);
 }
 
-function addKat() {
-  var katWidth = 170;
+/**
+ * Berechnet eine zufällige Position auf der x-Achse
+ * @param katDomElement Das DOM-Element mit der Katze, um die Breite des Bildes zu errechnen
+ * @returns {number} Eine zufällige Nummer zwischen 0 und Browserbreite - der Breite des Katzenbildes
+ */
+function getKatPosition(katDomElement) {
+  var katWidth = katDomElement.offsetWidth;
   var browserWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
   var katPlayground = browserWidth - katWidth;
-  var katPosition = Math.floor(Math.random() * katPlayground) + 1;
 
-  var katDom = getDomElement(katDivID);
-  katDom.style.cssText = 'left: ' + katPosition + 'px; bottom: 0px; ' + katDom.style.cssText;
-  domElement = document.getElementsByTagName('body')[0].appendChild(katDom);
-
-  window.setTimeout(removeKat, 1000, true);
+  return Math.floor(Math.random() * katPlayground) + 1;
 }
 
+/**
+ * Fügt das Katzenbild hinzu, positioniert ers auf der x-Achse und löscht es nach 1 Sekunde wieder
+ */
+function addKat() {
+  var katElement = getKatElement(katDivID);
+  var katDomElement = document.getElementsByTagName('body')[0].appendChild(katElement);
+
+  var katPosition = getKatPosition(katDomElement);
+  katDomElement.style.left = katPosition + 'px';
+  katDomElement.style.bottom = '0px';
+
+  window.setTimeout(removeKat, 1000, katDomElement);
+}
+
+/**
+ * Wartet auf die Eingabe des geheimen Codes
+ */
 window.addEventListener('keyup', function (e) {
-  console.log(e.key);
   keysPressed.push(e.key);
   keysPressed.splice(-katCode.length - 1, keysPressed.length - katCode.length);
   if (keysPressed.join('').includes(katCode)) {
-    console.log('DING DING!');
     addKat();
   }
   console.log(keysPressed);
