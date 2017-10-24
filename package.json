@@ -1,7 +1,7 @@
 {
   "name": "add2kat",
   "description": "Adds a kat to the browser window when a secret code is entered",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "dist/add2kat.js",
   "scripts": {
     "build": "run-s rollup build:copy build:uglify",
@@ -21,6 +21,9 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:add2de/add2kat.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.add2.de:8088/"
   },
   "bugs": {
     "url": "https://github.com/add2de/add2kat/issues"

@@ -2,7 +2,7 @@ const katImage = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKcAAADcCAMAAAAi
 const katCSSImage = `url("${katImage}")`;
 
 const container = document.createElement('div');
-container.style.cssText = `position: fixed; width: 167px; height: 220px; background-image: ${katCSSImage};`;
+container.style.cssText = `position: fixed; width: 167px; height: 220px; z-index: 9999; background-image: ${katCSSImage};`;
 
 const getKatElement = (containerId) => {
   container.id = containerId;
