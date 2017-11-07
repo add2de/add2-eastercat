@@ -1,7 +1,7 @@
 {
   "name": "add2-eastercat",
   "description": "Adds a cat to the browser window when a secret code is entered",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "main": "dist/eastercat.min.js",
   "scripts": {
     "build": "run-s rollup build:copy build:uglify",
