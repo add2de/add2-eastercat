@@ -2,7 +2,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 
 export default {
-  input: 'src/add2kat.es6',
+  input: 'src/eastercat.es6',
   plugins: [
     resolve(),
     babel({
@@ -10,7 +10,7 @@ export default {
     }),
   ],
   output: {
-    file: '.tmp/add2kat.js',
+    file: '.tmp/eastercat.js',
     format: 'iife',
   },
 };
