@@ -5,7 +5,7 @@ var katImage = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKcAAADcCAMAAAAiLU
 var katCSSImage = 'url("' + katImage + '")';
 
 var container = document.createElement('div');
-container.style.cssText = 'position: fixed; width: 167px; height: 220px; background-image: ' + katCSSImage + ';';
+container.style.cssText = 'position: fixed; width: 167px; height: 220px; z-index: 9999; background-image: ' + katCSSImage + ';';
 
 var getKatElement = function getKatElement(containerId) {
   container.id = containerId;
