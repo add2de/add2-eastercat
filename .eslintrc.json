@@ -2,6 +2,13 @@
   "extends": "airbnb-base",
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "mocha": true,
+    "es6": true
+  },
+  "rules": {
+    "linebreak-style": ["warn", "windows"],
+    "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
+    "max-len": ["warn", 120]
   }
 }
